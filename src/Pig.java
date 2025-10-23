@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Pig {
 
     /*
@@ -6,7 +10,7 @@ public class Pig {
     * converted to "pig Latin," where each word has its first letter moved to 
     * the back and the letters "ay" are added to the end of the word. However, 
     * words starting with a vowel (a, e, i, o, or u) should not be altered.
-    *
+    * 
     * Examples:
     *
     * pigLatin("something")  should return "omethingsay"
@@ -26,7 +30,41 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        /*
+         * psuedo code
+         * scanner 
+         * while the scanner has a next token
+         * check to see if the token char.at (0) is a vowel and if so we will jsut add the token
+         * otherwise we will take the first index char add it to itself
+         * return the new string
+         * 
+         */
+        String piglatin = "";
+        Scanner scanner = new Scanner(sentence);
+        List<String> list = new ArrayList<>();
+        
+        while (scanner.hasNextLine()) {
+            String next = scanner.next();
+            list.add(next);
+        }
+        for(String word : list){
+            if (word.charAt(0) == 'a' ||
+                word.charAt(0) == 'e' ||
+                word.charAt(0) == 'i' ||
+                word.charAt(0) == 'o' ||
+                word.charAt(0) == 'u') {
+                piglatin+= word + " ";
+            } else {
+                for(int i = 0; i< word.length()-1; i++){
+                    piglatin+= word.charAt(i+1);
+                }
+                piglatin += (word.charAt(0) + "ay ");
+                
+            }
+                
+        }
+        
+        return piglatin.trim();
     }
 
 
