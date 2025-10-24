@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Sponge {
 
   /*
@@ -33,7 +35,34 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    /*
+    variable to store string 
+     Scanner
+     while has next 
+
+     for 
+     to uppercase or lowercase
+
+     string
+
+     */
+    String spongeCase = ""; 
+    String regex = " ";
+    String[] myArray = sentence.split(regex);
+    for(String word: myArray){
+      for(int i = 0; i < word.length() ; i++){
+        if (i % 2 == 0 ) {
+          spongeCase += Character.toLowerCase(word.charAt(i));
+        } else{
+          spongeCase += Character.toUpperCase(word.charAt(i));
+        }
+        
+      }
+      spongeCase += " ";
+    }
+    
+   
+    return spongeCase.trim();
   }
 
 
